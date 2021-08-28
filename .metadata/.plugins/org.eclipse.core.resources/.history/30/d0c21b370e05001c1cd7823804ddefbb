@@ -1,0 +1,5 @@
+package com.cursoSpring.vendas.rest.controller;
+
+public class UsuarioController {
+
+}

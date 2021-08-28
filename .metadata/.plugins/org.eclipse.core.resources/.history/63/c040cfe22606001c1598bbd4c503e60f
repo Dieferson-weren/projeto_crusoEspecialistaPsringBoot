@@ -1,0 +1,5 @@
+package com.cursoSpring.vendas;
+
+public class JwtService {
+
+}

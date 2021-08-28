@@ -1,0 +1,5 @@
+package com.cursoSpring.vendas.domain.repository;
+
+public interface UsuarioRepository {
+
+}

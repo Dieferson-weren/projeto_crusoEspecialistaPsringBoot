@@ -1,0 +1,5 @@
+package com.cursoSpring.vendas.service.impl;
+
+public class UserDetailsService {
+
+}

@@ -1,0 +1,5 @@
+package com.cursoSpring.vendas.domain.entity;
+
+public class Usuario {
+
+}

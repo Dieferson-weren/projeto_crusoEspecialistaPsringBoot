@@ -1,0 +1,5 @@
+package com.cursoSpring.vendas.security.jwt;
+
+public class JwtAuthFilter {
+
+}

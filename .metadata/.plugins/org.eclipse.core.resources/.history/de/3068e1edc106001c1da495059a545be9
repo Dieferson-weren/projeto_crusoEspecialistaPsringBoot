@@ -1,0 +1,5 @@
+package com.cursoSpring.vendas.exception;
+
+public class SenhaInvalidaException extends Exception {
+
+}

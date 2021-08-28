@@ -1,0 +1,38 @@
+package com.cursoSpring.vendas.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.cursoSpring.vendas.domain.entity.Usuario;
+import com.cursoSpring.vendas.domain.repository.UsuarioRepository;
+
+@Service
+public class UserDetailsServiceImpl implements UserDetailsService{
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private UsuarioRepository repository;
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
+		Usuario usuario = repository.findByLogin(username)
+				.orElseThrow(() -> new UsernameNotFoundException(username + "não encontrado"));
+		
+		String[] roles = usuario.isAdmin() ? new String[] {"ADMIN", "USER"} : new String[] {"USER"};
+		
+		return User.builder()
+				.username(usuario.getLogin())
+				.password(usuario.getSenha())
+				.roles(roles)
+				.build();
+	}
+
+}
